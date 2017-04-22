@@ -17,7 +17,12 @@
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/style.css">
 	<!-- google web font css -->
-
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -188,8 +193,8 @@
 			<div class="col-md-12 col-sm-12">
 				<h2>Lokacija</h2>
 			</div>
-		<div>
-			<img src="images/mapa.png" alt="location" >
+		<div id="map">
+			
 		</div>
 		</div>
 	</div>
@@ -288,7 +293,20 @@
 <script src="js/isotope.js"></script>
 <script src="js/imagesloaded.min.js"></script>
 <script src="js/custom.js"></script>
-
+<script>
+      function initMap() {
+        var bakiceva = {lat: 45.0078, lng: 19.756};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: bakiceva
+        });
+        var marker = new google.maps.Marker({
+          position: bakiceva,
+          map: map
+        });
+      }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3RJ_O6fgfG6p6H536JrjmV1ujnDRrgGw&callback=initMap"></script>
 <script>
 $('#potvrda-PDV-transport').click(function(e) {
     e.preventDefault();  //stop the browser from following
